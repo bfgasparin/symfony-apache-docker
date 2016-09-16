@@ -1,6 +1,6 @@
 
 
-> # Attention This image is not ready for production usage. It's still in development. Do not use it yet.
+> # Attention: This image is not ready for production usage. It's still in development. Do not use it yet.
 
 # Symfony Base Image 
 
