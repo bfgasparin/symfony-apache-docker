@@ -35,8 +35,6 @@ ONBUILD COPY . /var/www/html
 
 ONBUILD RUN composer install --prefer-dist --optimize-autoloader --no-scripts --no-dev --profile --ignore-platform-reqs -vvv
 
-ONBUILD RUN php bin/console cache:clear --env=prod --no-debug
-
 # Configure directory permissions for the web server
 ONBUILD RUN chgrp -R www-data storage /var/www/html/var
 ONBUILD RUN chmod -R ug+rwx storage /var/www/html/var 

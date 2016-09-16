@@ -60,15 +60,10 @@ RUN docker-php-ext-install \
 This image includes multiple `ONBUILD` triggers which should cover most Symfony applications.
 The build will:
 
-* `ONBUILD COPY composer.json composer.lock artisan /var/www/html/`
-* `ONBUILD COPY database /var/www/html/database/`
-* `ONBUILD RUN composer install --prefer-dist --optimize-autoloader --no-scripts --no-dev --profile --ignore-platform-reqs -vvv`
 * `ONBUILD COPY . /var/www/html`
-* `ONBUILD RUN composer run-script post-install-cmd`
-* `ONBUILD RUN chgrp -R www-data storage /var/www/html/var/cache`
-* `ONBUILD RUN chmod -R ug+rwx storage /var/www/html/var/cache`
-* `ONBUILD RUN chgrp -R www-data storage /var/www/html/var/log`
-* `ONBUILD RUN chmod -R ug+rwx storage /var/www/html/var/log`
+* `ONBUILD RUN composer install --prefer-dist --optimize-autoloader --no-scripts --no-dev --profile --ignore-platform-reqs -vvv`
+* `ONBUILD RUN chgrp -R www-data storage /var/www/html/var`
+* `ONBUILD RUN chmod -R ug+rwx storage /var/www/html/var`
 * `ONBUILD VOLUME /var/www/html/var`
 * `ONBUILD RUN rm -Rf tests/`
 
