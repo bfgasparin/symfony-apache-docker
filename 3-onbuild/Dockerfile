@@ -36,8 +36,8 @@ ONBUILD COPY . /var/www/html
 ONBUILD RUN composer install --prefer-dist --optimize-autoloader --no-scripts --no-dev --profile --ignore-platform-reqs -vvv
 
 # Configure directory permissions for the web server
-ONBUILD RUN chgrp -R www-data storage /var/www/html/var
-ONBUILD RUN chmod -R ug+rwx storage /var/www/html/var 
+ONBUILD RUN chgrp -R www-data /var/www/html/var
+ONBUILD RUN chmod -R ug+rwx /var/www/html/var 
 
 # Configure data volume
 ONBUILD VOLUME /var/www/html/var
